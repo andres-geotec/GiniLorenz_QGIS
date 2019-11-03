@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/plugins/GiniLorenz_02sep18">
+    <file>icon_main.png</file>
+    <file>icons/icon_curva_lorenz.png</file>
+  </qresource>
+</RCC>

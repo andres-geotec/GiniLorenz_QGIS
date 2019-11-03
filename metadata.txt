@@ -1,0 +1,32 @@
+# This file contains metadata for your plugin. Beginning
+# with version 1.8 this is the preferred way to supply information about a
+# plugin. The current method of embedding metadata in __init__.py will
+# be supported until version 2.0
+
+# This file should be included when you package your plugin.
+
+# Mandatory items:
+
+
+[general]
+name=GiniLorenz
+qgisMinimumVersion=2.5
+description=Ejercicio con valor de la creación de un plugin en QGis
+about=Este plugin sirve para obtener el Índice de gini y la curva de Lorenz
+version=0.2.5
+author=Andres Martinez Gonzalez
+email=andres.geotec@gmail.com
+
+# end of mandatory metadata
+
+# Optional items:
+
+# Uncomment the following line and add your changelog entries:
+changelog=0.0.1: Creación del plugin 13 de septiembre, 2018
+
+# tags are comma separated with spaces allowed
+tags=
+
+icon=icon_main.png
+# experimental flag
+experimental=False
