@@ -33,6 +33,7 @@ class Ui_dlgGiniLorenz(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/plugins/GiniLorenz_02sep18/icons/icon_curva_lorenz.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         dlgGiniLorenz.setWindowIcon(icon)
+
         self.groupBox = QtGui.QGroupBox(dlgGiniLorenz)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 450, 130))
         font = QtGui.QFont()
@@ -74,6 +75,7 @@ class Ui_dlgGiniLorenz(object):
         self.cbxFieldGroup = QtGui.QComboBox(self.groupBox)
         self.cbxFieldGroup.setGeometry(QtCore.QRect(220, 100, 220, 20))
         self.cbxFieldGroup.setObjectName(_fromUtf8("cbxFieldGroup"))
+
         self.groupBox_2 = QtGui.QGroupBox(dlgGiniLorenz)
         self.groupBox_2.setGeometry(QtCore.QRect(10, 150, 450, 70))
         self.groupBox_2.setObjectName(_fromUtf8("groupBox_2"))
@@ -90,6 +92,7 @@ class Ui_dlgGiniLorenz(object):
         self.btnSearchShapeOutput = QtGui.QToolButton(self.groupBox_2)
         self.btnSearchShapeOutput.setGeometry(QtCore.QRect(410, 40, 30, 20))
         self.btnSearchShapeOutput.setObjectName(_fromUtf8("btnSearchShapeOutput"))
+
         self.groupBox_3 = QtGui.QGroupBox(dlgGiniLorenz)
         self.groupBox_3.setEnabled(True)
         self.groupBox_3.setGeometry(QtCore.QRect(10, 230, 450, 80))
@@ -114,6 +117,7 @@ class Ui_dlgGiniLorenz(object):
         self.cbxFieldJoinOutput = QtGui.QComboBox(self.groupBox_3)
         self.cbxFieldJoinOutput.setGeometry(QtCore.QRect(220, 50, 220, 20))
         self.cbxFieldJoinOutput.setObjectName(_fromUtf8("cbxFieldJoinOutput"))
+
         self.groupBox_4 = QtGui.QGroupBox(dlgGiniLorenz)
         self.groupBox_4.setGeometry(QtCore.QRect(10, 320, 450, 80))
         self.groupBox_4.setObjectName(_fromUtf8("groupBox_4"))
@@ -148,10 +152,12 @@ class Ui_dlgGiniLorenz(object):
         self.txtNewField = QtGui.QLineEdit(self.grpNewField)
         self.txtNewField.setGeometry(QtCore.QRect(60, 0, 160, 20))
         self.txtNewField.setObjectName(_fromUtf8("txtNewField"))
+
         self.prgProgresBarMain = QtGui.QProgressBar(dlgGiniLorenz)
         self.prgProgresBarMain.setGeometry(QtCore.QRect(170, 410, 620, 30))
         self.prgProgresBarMain.setProperty("value", 0)
         self.prgProgresBarMain.setObjectName(_fromUtf8("prgProgresBarMain"))
+
         self.btnRunMain = QtGui.QDialogButtonBox(dlgGiniLorenz)
         self.btnRunMain.setGeometry(QtCore.QRect(10, 410, 150, 30))
         font = QtGui.QFont()
@@ -160,6 +166,7 @@ class Ui_dlgGiniLorenz(object):
         self.btnRunMain.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.btnRunMain.setCenterButtons(True)
         self.btnRunMain.setObjectName(_fromUtf8("btnRunMain"))
+
         self.graphicsViewMain = QtGui.QGraphicsView(dlgGiniLorenz)
         self.graphicsViewMain.setGeometry(QtCore.QRect(470, 10, 320, 390))
         self.graphicsViewMain.setObjectName(_fromUtf8("graphicsViewMain"))
@@ -174,12 +181,15 @@ class Ui_dlgGiniLorenz(object):
         self.btnSearchShapeInput.setText(_translate("dlgGiniLorenz", "...", None))
         self.label_2.setText(_translate("dlgGiniLorenz", "Campo de entrada (poblacion):", None))
         self.label_3.setText(_translate("dlgGiniLorenz", "Campo de separación por grupo:", None))
+        
         self.groupBox_2.setTitle(_translate("dlgGiniLorenz", "Guardar datos en...", None))
         self.label_4.setText(_translate("dlgGiniLorenz", "Selecciona el shape destino:", None))
         self.btnSearchShapeOutput.setText(_translate("dlgGiniLorenz", "...", None))
+        
         self.groupBox_3.setTitle(_translate("dlgGiniLorenz", "Relacionar datos por:", None))
         self.label_5.setText(_translate("dlgGiniLorenz", "Campo 1 (capa de entrada):", None))
         self.label_6.setText(_translate("dlgGiniLorenz", "Campo 2 (capa de destino):", None))
+        
         self.groupBox_4.setTitle(_translate("dlgGiniLorenz", "Resultado (capa destino)", None))
         self.chkNewField.setText(_translate("dlgGiniLorenz", "Crear campo nuevo (decimal): ", None))
         self.chkUpdateField.setText(_translate("dlgGiniLorenz", "Actualizar capo existente:", None))
