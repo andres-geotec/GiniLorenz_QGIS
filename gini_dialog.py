@@ -125,7 +125,55 @@ class StartDiag(QMainWindow):
     print('INICIANDO...')
     layer = gini_getLayerByName(self.ui.cbxShapeInput.currentText())
     attributes = gini_getAllAttributes(layer)
-    print(attributes)
+    idxFieldJoinInput = layer.dataProvider().fieldNameIndex(self.ui.cbxFieldJoinInput.currentText())
+    idxFieldGroup = layer.dataProvider().fieldNameIndex(self.ui.cbxFieldGroup.currentText())
+    idxFieldData = layer.dataProvider().fieldNameIndex(self.ui.cbxFieldData.currentText())
+
+    separations = gini_getUniqueValues(gini_getValuesByField(attributes, idxFieldJoinInput))
+    groups = gini_getUniqueValues(gini_getValuesByField(attributes, idxFieldGroup))
+    print('\n\n' + str(len(separations)) + ' separaciones...')
+
+    separator = {}
+    for separation in separations:
+      attributesBySeparation = gini_getAttributesByGroup(attributes, idxFieldJoinInput, separation)
+      groupData = {}
+      for group in groups:
+        attributesByGroup = gini_getAttributesByGroup(attributesBySeparation, idxFieldGroup, group)
+        if len(attributesByGroup) > 0:
+          #print(group + ': ' + str(len(attributesByGroup)))
+          valuesByGroup = gini_getValuesByField(attributesByGroup, idxFieldData)
+          groupData[group] = valuesByGroup
+      print('\n\n' + separation + ': (' + str(len(attributesBySeparation)) + ' filas)  calculando....')
+      gini = gini_getGini(groupData)
+      separator[separation] = gini
+      print('\nINDICE DE GINI = ' + str(gini))
+    self.saveData(separator)
+
+  def saveData(self, separator):
+    print(separator)
+    layer = gini_getLayerByName(self.ui.cbxShapeOutput.currentText())
+    nameFieldJoinOutput = self.ui.cbxFieldJoinOutput.currentText()
+    nameUpdateField = self.ui.cbxUpdateField.currentText()
+    print(self.ui.chkNewField.checkState(), self.ui.chkUpdateField.checkState())
+    if self.ui.chkNewField.checkState() > 0:
+      nameUpdateField = self.ui.txtNewField.text()
+      if layer.dataProvider().addAttributes([QgsField(nameUpdateField, QVariant.Double)]):
+        print('Se agrego un nuevo campo')
+      layer.updateFields()
+    #idxUpdateField = layer.dataProvider().fieldNameIndex(nameUpdateField)
+
+    layer.startEditing()
+    for key in sorted( separator.keys() ):
+      sentencia = (u' \"%s\" = \'%s\' ' %(nameFieldJoinOutput, key))
+      print('where %s --> %f' %(sentencia, separator[key]))
+      layer.selectByExpression(sentencia, QgsVectorLayer.SetSelection)
+      #selection = layer.dataProvider().getFeatures(QgsFeatureRequest().setFilterExpression(sentencia))
+      featureSeleccionado = layer.selectedFeatures()[0]
+      featureSeleccionado[nameUpdateField] = 0
+      layer.updateFeature(featureSeleccionado)
+      layer.commitChanges()
+      layer.removeSelection()
+    iface.mapCanvas().refresh()
 
   def cancelar(self):
     print('Cancelado')
