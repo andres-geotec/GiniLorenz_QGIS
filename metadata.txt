@@ -10,10 +10,11 @@
 
 [general]
 name=GiniLorenz
-qgisMinimumVersion=2.5
-description=Ejercicio con valor de la creación de un plugin en QGis
+description=Ejercicio de creación de un plugin en QGis
 about=Este plugin sirve para obtener el Índice de gini y la curva de Lorenz
-version=0.2.5
+version=1.0
+qgisMinimumVersion=3.0
+icon=icon_main.png
 author=Andres Martinez Gonzalez
 email=andres.geotec@gmail.com
 
@@ -21,12 +22,16 @@ email=andres.geotec@gmail.com
 
 # Optional items:
 
+# tags are comma separated with spaces allowed
+tags=Índice de Gini, Curva de Lorenz
+
 # Uncomment the following line and add your changelog entries:
 changelog=0.0.1: Creación del plugin 13 de septiembre, 2018
 
-# tags are comma separated with spaces allowed
-tags=
-
-icon=icon_main.png
 # experimental flag
 experimental=False
+
+#- category=Web
+#- homepage=https://qgis.org/
+#- tracker=https://issues.qgis.org/projects/qgis/issues?category_id=107&set_filter=1&status_id=o
+repository=https://github.com/andres-geotec/GiniLorenz_QGIS
